@@ -28,15 +28,4 @@ window.PROJETOS = [
     status: "Lançado",
     data: "2026",
   },
-  {
-    titulo: "Próximo site",
-    categoria: "Em produção",
-    descricao: "Um novo projeto está a caminho. Em breve ele aparece aqui.",
-    destaques: [],
-    imagem: "",
-    imagemMobile: "",
-    link: "",
-    status: "Em breve",
-    data: "",
-  },
 ];
