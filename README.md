@@ -18,5 +18,5 @@ e coloque o print em `public/img/`. Se o projeto tiver `antesDepois`, o card mos
 
 ## Publicar
 
-O workflow `.github/workflows/deploy.yml` publica no GitHub Pages a cada push na `main`.
+O workflow `.github/workflows/deploy.yml` publica no GitHub Pages a cada push na branch principal (`main` ou `claude/wizardly-noether-zr9nx8`, a padrão atual).
 Na primeira vez: **Settings → Pages → Source: GitHub Actions**.

@@ -2,7 +2,7 @@ name: Deploy no GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, claude/wizardly-noether-zr9nx8]
   workflow_dispatch:
 
 permissions:
