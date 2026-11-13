@@ -15,30 +15,21 @@
  */
 window.PROJETOS = [
   {
-    titulo: "Meu primeiro projeto",
-    descricao: "Uma descrição curta do problema que este projeto resolve e do que você aprendeu construindo-o.",
-    tags: ["HTML", "CSS", "JavaScript"],
+    titulo: "CT LS26 Sabino",
+    descricao: "Meu primeiro projeto lançado: landing page para um CT de futevôlei no Janga, apresentando o centro de treinamento e facilitando o contato de novos alunos.",
+    tags: ["Landing page", "HTML", "CSS", "Futevôlei"],
     imagem: "",
-    link: "",
+    link: "https://davimbraz-del.github.io/CTLS26-SABINO/",
     status: "Lançado",
     data: "2026",
   },
   {
-    titulo: "Projeto em andamento",
-    descricao: "Algo que você está construindo agora. Conte a ideia e o próximo passo.",
-    tags: ["Design", "Produto"],
-    imagem: "",
-    link: "",
-    status: "Em andamento",
-    data: "2026",
-  },
-  {
-    titulo: "Próxima ideia",
-    descricao: "Um espaço reservado para o próximo lançamento. Troque este texto quando ele sair.",
-    tags: ["Em breve"],
+    titulo: "Próximo site",
+    descricao: "Um novo projeto está a caminho. Em breve ele aparece aqui.",
+    tags: ["Landing page"],
     imagem: "",
     link: "",
     status: "Em breve",
-    data: "2027",
+    data: "Em breve",
   },
 ];
