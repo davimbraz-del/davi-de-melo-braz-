@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Davi de Melo Braz</title>
-<meta name="description" content="Davi de Melo Braz, estudante de Ciência da Computação na UNICAP. Sobre mim, habilidades e projetos.">
+<meta name="description" content="Davi de Melo Braz cria sites e landing pages para pequenos negócios em Recife e região. Estudante de Ciência da Computação na UNICAP.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
@@ -20,67 +20,55 @@
     --cyan: #38BDF8;
     --navy: #1E3A8A;
     --radius: 20px;
-    --radius-lg: 24px;
     --shadow: 0 24px 60px -20px rgba(0, 0, 0, .7), 0 8px 20px -10px rgba(0, 0, 0, .5);
     --font-title: "Manrope", "Plus Jakarta Sans", system-ui, sans-serif;
     --font-body: "Inter", system-ui, sans-serif;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: clip; }
   body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font-body);
-    font-size: 17px;
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+    background: var(--bg); color: var(--text);
+    font-family: var(--font-body); font-size: 17px; line-height: 1.75;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
   }
   img { max-width: 100%; display: block; }
   a { color: inherit; text-decoration: none; }
+  button, input, select, textarea { font: inherit; color: inherit; }
 
   .container { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 24px; }
   section { padding: 112px 0; position: relative; }
-  section.alt { background: var(--bg-alt); }
+  .alt { background: var(--bg-alt); }
 
-  h1, h2, h3 { font-family: var(--font-title); color: var(--text); line-height: 1.15; letter-spacing: -0.02em; }
-  h1 { font-size: clamp(2.5rem, 6vw, 4.25rem); font-weight: 800; }
+  h1, h2, h3 { font-family: var(--font-title); line-height: 1.12; letter-spacing: -0.02em; }
+  h1 { font-size: clamp(2.3rem, 5.4vw, 4rem); font-weight: 800; }
   h2 { font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 800; margin-bottom: 16px; }
   h3 { font-size: 1.25rem; font-weight: 700; }
   .hl { color: var(--cyan); }
   .lead { color: var(--muted); font-size: 1.125rem; max-width: 620px; }
   .eyebrow {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: .8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: .78rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
     color: var(--cyan); margin-bottom: 16px;
   }
-  .eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--cyan); opacity: .7; }
+  .eyebrow::before { content: ""; width: 24px; height: 1px; background: currentColor; opacity: .7; }
   .section-head { margin-bottom: 56px; }
 
   /* ---------- Botões ---------- */
   .btn {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 14px 28px; border-radius: 999px;
-    font-family: var(--font-title); font-weight: 700; font-size: 1rem;
-    transition: transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
-    cursor: pointer; border: 1px solid transparent;
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 14px 28px; border-radius: 999px; border: 1px solid transparent;
+    font-family: var(--font-title); font-weight: 700; font-size: 1rem; cursor: pointer;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, color .25s ease;
   }
-  .btn-primary {
-    background: var(--action); color: var(--bg);
-    box-shadow: 0 0 0 0 rgba(59,130,246,0), 0 10px 30px -8px rgba(59,130,246,.55);
-  }
+  .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+  .btn-primary { background: var(--action); color: var(--bg); box-shadow: 0 10px 30px -8px rgba(59,130,246,.55); }
   .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 32px rgba(59,130,246,.45), 0 14px 34px -8px rgba(59,130,246,.6); }
-  .btn-ghost { border-color: var(--border); color: var(--text); background: rgba(21,30,43,.6); }
+  .btn-ghost { border-color: var(--border); background: rgba(21,30,43,.6); }
   .btn-ghost:hover { border-color: var(--action); color: var(--cyan); }
-  .btn svg { width: 18px; height: 18px; }
 
   /* ---------- Navegação ---------- */
-  nav {
-    position: fixed; inset: 0 0 auto 0; z-index: 50;
-    transition: background .3s ease, border-color .3s ease;
-    border-bottom: 1px solid transparent;
-  }
+  nav { position: fixed; inset: 0 0 auto 0; z-index: 50; border-bottom: 1px solid transparent; transition: background .3s, border-color .3s; }
   nav.scrolled { background: rgba(10,14,20,.82); backdrop-filter: blur(14px); border-color: var(--border); }
   .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
   .logo { font-family: var(--font-title); font-weight: 800; font-size: 1.15rem; }
@@ -89,18 +77,17 @@
   .nav-links a { color: var(--muted); font-size: .95rem; font-weight: 500; transition: color .2s; }
   .nav-links a:hover { color: var(--text); }
   .nav-cta { padding: 10px 20px; font-size: .9rem; }
-  .menu-btn { display: none; background: none; border: 0; color: var(--text); cursor: pointer; padding: 8px; }
+  .menu-btn { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
   .menu-btn svg { width: 26px; height: 26px; }
 
   /* ---------- Hero ---------- */
-  .hero { min-height: 100vh; display: flex; align-items: center; padding: 140px 0 96px; overflow: hidden; }
-  .hero::before { /* textura de pontos */
-    content: ""; position: absolute; inset: 0;
+  .hero { min-height: 100vh; display: flex; align-items: center; padding: 136px 0 88px; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
     background-image: radial-gradient(rgba(56,189,248,.16) 1px, transparent 1px);
     background-size: 26px 26px;
     mask-image: radial-gradient(ellipse 80% 70% at 60% 40%, #000 30%, transparent 80%);
     -webkit-mask-image: radial-gradient(ellipse 80% 70% at 60% 40%, #000 30%, transparent 80%);
-    pointer-events: none;
   }
   .curves { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
   .curves path { fill: none; stroke: var(--cyan); stroke-width: 1.2; stroke-linecap: round; }
@@ -109,48 +96,57 @@
   .curves .c3 { opacity: .1; stroke: var(--action); }
   @keyframes flow { to { stroke-dashoffset: -800; } }
 
-  .hero-grid { position: relative; display: grid; grid-template-columns: 1.15fr .85fr; gap: 64px; align-items: center; }
+  .hero-grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
   .badge {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 8px 16px; border-radius: 999px;
+    display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border-radius: 999px;
     background: rgba(56,189,248,.08); border: 1px solid rgba(56,189,248,.25);
     color: var(--cyan); font-size: .85rem; font-weight: 500; margin-bottom: 28px;
   }
-  .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); animation: pulse 2.4s ease-in-out infinite; }
+  .dot { width: 8px; height: 8px; flex-shrink: 0; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); animation: pulse 2.4s ease-in-out infinite; }
   @keyframes pulse { 50% { opacity: .35; } }
-  .hero h1 { margin-bottom: 24px; font-size: clamp(2rem, 5.2vw, 3.75rem); }
-  .typed-line { white-space: nowrap; }
-  .hero .lead { margin-bottom: 40px; }
-  .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 48px; }
-  .hero-stats { display: flex; gap: 40px; flex-wrap: wrap; }
-  .stat strong { display: block; font-family: var(--font-title); font-size: 1.9rem; font-weight: 800; color: var(--text); }
-  .stat span { color: var(--muted); font-size: .9rem; }
+  .hero h1 { margin-bottom: 24px; }
+  .hero .lead { margin-bottom: 36px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
 
-  .photo-wrap { position: relative; justify-self: center; width: 100%; max-width: 400px; }
-  .photo-wrap::before { /* glow */
-    content: ""; position: absolute; inset: 8% -6% -4% -6%;
-    background: radial-gradient(closest-side, rgba(59,130,246,.45), rgba(56,189,248,.15) 55%, transparent);
-    filter: blur(40px); z-index: 0;
+  /* Mockup: navegador + celular */
+  .showcase { position: relative; display: block; padding: 0 0 48px 0; }
+  .showcase::before {
+    content: ""; position: absolute; inset: 0 -8% 10% -8%; z-index: 0;
+    background: radial-gradient(closest-side, rgba(59,130,246,.42), rgba(56,189,248,.12) 60%, transparent);
+    filter: blur(40px);
   }
-  .photo {
-    position: relative; z-index: 1; aspect-ratio: 4 / 5; border-radius: 28px; overflow: hidden;
-    background: linear-gradient(160deg, var(--surface), var(--navy));
-    border: 1px solid var(--border); box-shadow: var(--shadow);
-    display: grid; place-items: center;
+  .browser {
+    position: relative; z-index: 1; border-radius: 16px; overflow: hidden;
+    background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow);
+    transition: transform .6s ease;
   }
-  .photo img { width: 100%; height: 100%; object-fit: cover; }
-  .photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,14,20,.85) 0%, rgba(10,14,20,0) 45%); }
-  .photo .initials { font-family: var(--font-title); font-weight: 800; font-size: 6rem; color: rgba(232,238,245,.9); letter-spacing: -0.04em; }
-  .photo-tag {
-    position: absolute; z-index: 2; left: 20px; right: 20px; bottom: 20px;
-    display: flex; align-items: center; gap: 12px;
-    padding: 14px 16px; border-radius: 16px;
-    background: rgba(21,30,43,.82); border: 1px solid var(--border); backdrop-filter: blur(10px);
+  .showcase .browser { transform: perspective(1400px) rotateY(-6deg) rotateX(2deg); }
+  .showcase:hover .browser { transform: perspective(1400px) rotateY(0) rotateX(0); }
+  .browser-bar { display: flex; align-items: center; gap: 7px; padding: 11px 14px; border-bottom: 1px solid var(--border); background: #111927; }
+  .browser-bar i { width: 10px; height: 10px; border-radius: 50%; background: #2A3A55; flex-shrink: 0; }
+  .browser-bar span { margin-left: 10px; flex: 1; min-width: 0; font-size: .72rem; color: var(--muted); background: var(--bg); border-radius: 999px; padding: 3px 12px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .browser img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+  .phone {
+    position: absolute; z-index: 2; right: -14px; bottom: 0; width: 28%;
+    border-radius: 22px; padding: 6px; background: #0B111B; border: 1px solid var(--border);
+    box-shadow: 0 30px 60px -15px rgba(0,0,0,.8), 0 0 30px -10px rgba(59,130,246,.5);
   }
-  .photo-tag .ico { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: rgba(56,189,248,.12); color: var(--cyan); flex-shrink: 0; }
-  .photo-tag .ico svg { width: 20px; height: 20px; }
-  .photo-tag strong { display: block; font-family: var(--font-title); font-size: .95rem; line-height: 1.3; }
-  .photo-tag span { color: var(--muted); font-size: .8rem; line-height: 1.3; }
+  .phone img { border-radius: 16px; aspect-ratio: 9 / 19; object-fit: cover; object-position: top; width: 100%; }
+  .showcase-tag {
+    position: absolute; z-index: 3; left: -12px; bottom: 18px;
+    display: flex; align-items: center; gap: 10px; padding: 10px 16px 10px 14px; border-radius: 14px;
+    background: rgba(21,30,43,.9); border: 1px solid var(--border); backdrop-filter: blur(10px);
+    font-size: .82rem; box-shadow: var(--shadow);
+  }
+  .showcase-tag strong { display: block; font-family: var(--font-title); font-size: .9rem; line-height: 1.3; }
+  .showcase-tag small { color: var(--muted); line-height: 1.3; display: block; }
+
+  /* ---------- Números ---------- */
+  .stats { padding: 56px 0; border-block: 1px solid var(--border); }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+  .stat strong { display: block; font-family: var(--font-title); font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 800; line-height: 1.1; }
+  .stat strong em { font-style: normal; color: var(--cyan); font-size: .55em; margin-left: 3px; }
+  .stat span { color: var(--muted); font-size: .92rem; }
 
   /* ---------- Cards ---------- */
   .card {
@@ -164,95 +160,41 @@
     background: rgba(56,189,248,.08); border: 1px solid rgba(56,189,248,.2); color: var(--cyan); margin-bottom: 22px;
   }
   .icon svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-
-  /* ---------- Sobre ---------- */
-  .about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: start; }
-  .about-text p { color: var(--muted); margin-bottom: 20px; }
-  .about-text p strong { color: var(--text); font-weight: 600; }
-  .facts { display: grid; gap: 16px; }
-  .fact { display: flex; gap: 16px; align-items: center; padding: 20px 24px; }
-  .fact .icon { margin: 0; width: 44px; height: 44px; flex-shrink: 0; }
-  .fact .icon svg { width: 20px; height: 20px; }
-  .fact small { display: block; color: var(--muted); font-size: .82rem; }
-  .fact b { font-family: var(--font-title); font-weight: 700; }
-
-  /* ---------- Habilidades ---------- */
-  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .skills-grid p { color: var(--muted); margin-top: 10px; font-size: 1rem; }
+  .label {
+    display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 999px; background: rgba(56,189,248,.1); color: var(--cyan); border: 1px solid rgba(56,189,248,.25);
+  }
+  .checks { list-style: none; display: grid; gap: 10px; }
+  .checks li { display: flex; gap: 10px; align-items: start; font-size: .95rem; }
+  .checks li::before {
+    content: ""; flex-shrink: 0; width: 18px; height: 18px; margin-top: 4px; border-radius: 50%;
+    background: rgba(56,189,248,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338BDF8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12l4 4 8-8'/%3E%3C/svg%3E") center / 12px no-repeat;
+  }
 
   /* ---------- Projetos ---------- */
-  .projects-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: 56px; }
-  .projects-head .section-head { margin: 0; }
-  .filters { display: flex; flex-wrap: wrap; gap: 8px; }
-  .chip {
-    padding: 8px 16px; border-radius: 999px; font-size: .88rem; font-weight: 500;
-    background: transparent; border: 1px solid var(--border); color: var(--muted); cursor: pointer;
-    font-family: var(--font-body); transition: all .2s;
-  }
-  .chip:hover { color: var(--text); border-color: var(--action); }
-  .chip.active { background: var(--action); border-color: var(--action); color: var(--bg); font-weight: 600; }
+  .featured { display: grid; grid-template-columns: 1.15fr 1fr; padding: 0; overflow: hidden; margin-bottom: 24px; }
+  .featured-media { position: relative; background: linear-gradient(140deg, var(--navy), var(--surface) 80%); padding: 40px 0 0 40px; overflow: hidden; display: flex; align-items: flex-end; }
+  .featured-media .browser { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-right: 0; border-bottom: 0; width: 100%; }
+  .featured:hover .featured-media .browser { transform: translateY(-6px); }
+  .featured-body { padding: 44px 40px; display: flex; flex-direction: column; gap: 16px; }
+  .featured-body p { color: var(--muted); }
+  .featured-body .checks { grid-template-columns: 1fr 1fr; margin: 4px 0 12px; }
+  .featured-body .btn { align-self: flex-start; }
+  .meta-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .meta-row small { color: var(--muted); font-size: .85rem; }
   .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .project { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
   .project-cover { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: linear-gradient(140deg, var(--navy), var(--surface) 75%); }
-  .project-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
-  .project:hover .project-cover img { transform: scale(1.04); }
-  .project-cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(21,30,43,1) 0%, rgba(21,30,43,0) 60%); }
-  .project-cover .ph { position: absolute; inset: 0; }
+  .project-cover img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .project-cover .ph { position: absolute; inset: 0; width: 100%; height: 100%; }
   .project-cover .ph path { fill: none; stroke: var(--cyan); stroke-width: 1.2; opacity: .35; }
-  .status {
-    position: absolute; top: 16px; left: 16px; z-index: 1;
-    padding: 5px 12px; border-radius: 999px; font-size: .75rem; font-weight: 600;
-    background: rgba(10,14,20,.75); border: 1px solid rgba(56,189,248,.35); color: var(--cyan); backdrop-filter: blur(6px);
-  }
-  .status.soon { border-color: var(--border); color: var(--muted); }
-  .project-body { padding: 8px 28px 28px; display: flex; flex-direction: column; flex: 1; }
-  .project-body .meta { color: var(--muted); font-size: .8rem; margin-bottom: 6px; }
-  .project-body p { color: var(--muted); font-size: .98rem; margin: 10px 0 18px; flex: 1; }
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
-  .tag { font-size: .75rem; padding: 4px 10px; border-radius: 999px; background: rgba(56,189,248,.08); color: var(--cyan); border: 1px solid rgba(56,189,248,.18); }
-  .project-link { display: inline-flex; align-items: center; gap: 8px; color: var(--text); font-weight: 600; font-size: .95rem; transition: color .2s, gap .2s; }
-  .project-link:hover { color: var(--cyan); gap: 12px; }
-  .project-link.disabled { color: var(--muted); pointer-events: none; font-weight: 500; }
-  .project-link svg { width: 16px; height: 16px; }
-
-  /* ---------- Trajetória ---------- */
-  .timeline { position: relative; display: grid; gap: 24px; max-width: 820px; }
-  .timeline::before { content: ""; position: absolute; left: 21px; top: 8px; bottom: 8px; width: 1px; background: linear-gradient(var(--cyan), rgba(56,189,248,0)); opacity: .5; }
-  .tl-item { position: relative; padding-left: 64px; }
-  .tl-item::before {
-    content: ""; position: absolute; left: 14px; top: 34px; width: 15px; height: 15px; border-radius: 50%;
-    background: var(--bg-alt); border: 2px solid var(--cyan); box-shadow: 0 0 12px rgba(56,189,248,.6);
-  }
-  .tl-item .card { padding: 26px 30px; }
-  .tl-when { color: var(--cyan); font-size: .85rem; font-weight: 600; letter-spacing: .04em; }
-  .tl-item h3 { margin: 4px 0 2px; }
-  .tl-where { color: var(--muted); font-size: .92rem; }
-  .tl-item p { color: var(--muted); margin-top: 12px; font-size: 1rem; }
-
-  /* ---------- Contato ---------- */
-  .contact-box {
-    position: relative; overflow: hidden; text-align: center;
-    background: linear-gradient(150deg, var(--navy) 0%, #142456 45%, var(--surface) 100%);
-    border: 1px solid rgba(59,130,246,.35); border-radius: 28px; padding: 80px 32px; box-shadow: var(--shadow);
-  }
-  .contact-box .curves path { opacity: .2; }
-  .contact-box > *:not(svg) { position: relative; }
-  .contact-box .lead { margin: 0 auto 36px; color: #B8C6DA; }
-  .contact-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; margin-bottom: 36px; }
-  .socials { display: flex; justify-content: center; gap: 12px; }
-  .social {
-    width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center;
-    border: 1px solid rgba(232,238,245,.15); color: var(--text); background: rgba(10,14,20,.35); transition: all .25s;
-  }
-  .social:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 18px rgba(56,189,248,.35); }
-  .social svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-
-  /* ---------- Digitação ---------- */
-  .typed { color: var(--cyan); border-right: 3px solid var(--cyan); padding-right: 4px; animation: caret 1s step-end infinite; }
-  @keyframes caret { 50% { border-color: transparent; } }
+  .project-body { padding: 24px 28px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .project-body p { color: var(--muted); font-size: .98rem; flex: 1; }
+  .soon { color: var(--muted); font-size: .92rem; font-weight: 500; }
+  .project.ghost { border-style: dashed; box-shadow: none; }
 
   /* ---------- Faixa de tecnologias ---------- */
-  .marquee { border-block: 1px solid var(--border); background: var(--bg-alt); padding: 22px 0; overflow: hidden; }
+  .marquee { border-block: 1px solid var(--border); padding: 22px 0; overflow: hidden; }
   .marquee-track { display: flex; gap: 56px; width: max-content; animation: scroll 32s linear infinite; }
   .marquee:hover .marquee-track { animation-play-state: paused; }
   .marquee-item { display: flex; align-items: center; gap: 12px; color: var(--muted); font-family: var(--font-title); font-weight: 700; font-size: 1.05rem; white-space: nowrap; }
@@ -262,78 +204,145 @@
   /* ---------- Serviços ---------- */
   .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .service { display: flex; flex-direction: column; }
-  .service p { color: var(--muted); margin: 10px 0 20px; font-size: 1rem; }
-  .service ul { list-style: none; display: grid; gap: 10px; margin-bottom: 28px; flex: 1; }
-  .service li { display: flex; gap: 10px; align-items: start; font-size: .95rem; color: var(--text); }
-  .service li::before { content: ""; flex-shrink: 0; width: 18px; height: 18px; margin-top: 4px; border-radius: 50%; background: rgba(56,189,248,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338BDF8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12l4 4 8-8'/%3E%3C/svg%3E") center / 12px no-repeat; }
-  .service.featured { background: linear-gradient(160deg, var(--navy), var(--surface) 70%); border-color: rgba(59,130,246,.5); }
+  .service > p { color: var(--muted); margin: 10px 0 20px; font-size: 1rem; }
+  .service .checks { margin-bottom: 28px; flex: 1; }
+  .service.top { background: linear-gradient(160deg, var(--navy), var(--surface) 70%); border-color: rgba(59,130,246,.5); }
   .service .btn { align-self: flex-start; padding: 12px 22px; font-size: .92rem; }
-  .pill { display: inline-block; align-self: flex-start; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; background: var(--action); color: var(--bg); margin-bottom: 14px; }
+
+  /* ---------- Sobre ---------- */
+  .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; align-items: center; }
+  .photo-wrap { position: relative; max-width: 380px; width: 100%; justify-self: center; }
+  .photo-wrap::before {
+    content: ""; position: absolute; inset: 10% -8% -4% -8%;
+    background: radial-gradient(closest-side, rgba(59,130,246,.4), transparent); filter: blur(40px);
+  }
+  .photo {
+    position: relative; aspect-ratio: 4 / 5; border-radius: 28px; overflow: hidden;
+    background: linear-gradient(160deg, var(--surface), var(--navy)); border: 1px solid var(--border); box-shadow: var(--shadow);
+    display: grid; place-items: center;
+  }
+  .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,14,20,.85), rgba(10,14,20,0) 45%); }
+  .initials { font-family: var(--font-title); font-weight: 800; font-size: 6rem; color: rgba(232,238,245,.9); letter-spacing: -0.04em; }
+  .photo-tag {
+    position: absolute; z-index: 1; left: 18px; right: 18px; bottom: 18px; padding: 14px 16px; border-radius: 16px;
+    background: rgba(21,30,43,.85); border: 1px solid var(--border); backdrop-filter: blur(10px);
+  }
+  .photo-tag strong { display: block; font-family: var(--font-title); font-size: .95rem; line-height: 1.3; }
+  .photo-tag span { color: var(--muted); font-size: .8rem; }
+  .about-text p { color: var(--muted); margin-bottom: 18px; }
+  .about-text p strong { color: var(--text); font-weight: 600; }
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 28px; }
+  .fact { padding: 18px; }
+  .fact .icon { width: 40px; height: 40px; margin-bottom: 12px; }
+  .fact .icon svg { width: 20px; height: 20px; }
+  .fact small { display: block; color: var(--muted); font-size: .78rem; }
+  .fact b { font-family: var(--font-title); font-weight: 700; font-size: .95rem; line-height: 1.35; display: block; }
 
   /* ---------- Processo ---------- */
-  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; counter-reset: step; }
-  .step { position: relative; }
-  .step-num { font-family: var(--font-title); font-weight: 800; font-size: 2.6rem; line-height: 1; color: transparent; -webkit-text-stroke: 1px var(--cyan); opacity: .8; margin-bottom: 18px; display: block; }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .step-num { display: block; font-family: var(--font-title); font-weight: 800; font-size: 2.6rem; line-height: 1; color: transparent; -webkit-text-stroke: 1px var(--cyan); margin-bottom: 18px; }
   .step p { color: var(--muted); font-size: .98rem; margin-top: 8px; }
+
+  /* ---------- Trajetória ---------- */
+  .timeline { position: relative; display: grid; gap: 24px; max-width: 820px; }
+  .timeline::before { content: ""; position: absolute; left: 21px; top: 8px; bottom: 8px; width: 1px; background: linear-gradient(var(--cyan), rgba(56,189,248,0)); opacity: .5; }
+  .tl-item { position: relative; padding-left: 64px; }
+  .tl-item::before { content: ""; position: absolute; left: 14px; top: 34px; width: 15px; height: 15px; border-radius: 50%; background: var(--bg); border: 2px solid var(--cyan); box-shadow: 0 0 12px rgba(56,189,248,.6); }
+  .tl-item .card { padding: 26px 30px; }
+  .tl-when { color: var(--cyan); font-size: .82rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+  .tl-item h3 { margin: 4px 0 2px; }
+  .tl-where { color: var(--muted); font-size: .92rem; }
+  .tl-item p { color: var(--muted); margin-top: 12px; font-size: 1rem; }
+
+  /* ---------- Chamada ---------- */
+  .cta { padding: 112px 0 0; }
+  .cta-box {
+    position: relative; overflow: hidden; text-align: center; border-radius: 28px; padding: 80px 32px;
+    background: linear-gradient(150deg, var(--navy) 0%, #142456 45%, var(--surface) 100%);
+    border: 1px solid rgba(59,130,246,.35); box-shadow: var(--shadow);
+  }
+  .cta-box .curves path { opacity: .2; }
+  .cta-box > *:not(svg) { position: relative; }
+  .cta-box h2 { max-width: 720px; margin: 0 auto 16px; }
+  .cta-box .lead { margin: 0 auto 36px; color: #B8C6DA; }
+  .cta-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; }
+
+  /* ---------- Contato ---------- */
+  .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: start; }
+  .contact-list { display: grid; gap: 14px; }
+  .contact-item { display: flex; align-items: center; gap: 16px; padding: 18px 22px; }
+  .contact-item .icon { width: 44px; height: 44px; margin: 0; flex-shrink: 0; }
+  .contact-item .icon svg { width: 20px; height: 20px; }
+  .contact-item small { display: block; color: var(--muted); font-size: .8rem; }
+  .contact-item b { font-family: var(--font-title); font-weight: 700; }
+  form.card { display: grid; gap: 16px; }
+  form.card:hover { transform: none; }
+  .field { display: grid; gap: 6px; }
+  .field label { font-size: .85rem; font-weight: 500; color: var(--muted); }
+  .field input, .field select, .field textarea {
+    width: 100%; padding: 13px 16px; border-radius: 14px; border: 1px solid var(--border);
+    background: var(--bg); color: var(--text); outline: none; transition: border-color .2s, box-shadow .2s;
+  }
+  .field textarea { min-height: 120px; resize: vertical; }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--action); box-shadow: 0 0 0 3px rgba(59,130,246,.2); }
+  .form-note { color: var(--muted); font-size: .82rem; text-align: center; }
 
   /* ---------- WhatsApp flutuante ---------- */
   .wa-float {
-    position: fixed; right: 20px; bottom: 20px; z-index: 60;
-    width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center;
-    background: var(--action); color: var(--bg);
-    box-shadow: 0 0 28px rgba(59,130,246,.5), 0 12px 30px -8px rgba(0,0,0,.6);
-    transition: transform .25s ease;
+    position: fixed; right: 20px; bottom: 20px; z-index: 60; width: 58px; height: 58px; border-radius: 50%;
+    display: grid; place-items: center; background: var(--action); color: var(--bg);
+    box-shadow: 0 0 28px rgba(59,130,246,.5), 0 12px 30px -8px rgba(0,0,0,.6); transition: transform .25s;
   }
   .wa-float:hover { transform: scale(1.08); }
   .wa-float svg { width: 26px; height: 26px; }
 
-  @media (max-width: 960px) {
-    .services-grid { grid-template-columns: 1fr 1fr; }
-    .steps { grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 760px) {
-    .services-grid, .steps { grid-template-columns: 1fr; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .marquee-track, .typed { animation: none; }
-  }
-
-  footer { padding: 40px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: .9rem; }
+  footer { padding: 36px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: .9rem; }
   .footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer a:hover { color: var(--cyan); }
 
-  /* ---------- Animação de entrada ---------- */
+  /* ---------- Entrada ---------- */
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
   .reveal.in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
-    .curves .c1, .badge .dot { animation: none; }
+    .curves .c1, .dot, .marquee-track { animation: none; }
     html { scroll-behavior: auto; }
   }
 
   /* ---------- Responsivo ---------- */
-  @media (max-width: 960px) {
-    .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 56px; }
-    .photo-wrap { max-width: 340px; order: -1; }
-    .skills-grid, .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 1020px) {
+    .hero-grid, .about-grid, .contact-grid, .featured { grid-template-columns: 1fr; }
+    .hero-grid { gap: 64px; }
+    .showcase { max-width: 620px; width: 100%; justify-self: center; }
+    .services-grid, .projects-grid { grid-template-columns: 1fr 1fr; }
+    .steps, .stats-grid { grid-template-columns: 1fr 1fr; }
+    .stats-grid { row-gap: 36px; }
   }
   @media (max-width: 760px) {
     body { font-size: 16px; }
     .container { padding: 0 16px; }
     section { padding: 80px 0; }
+    .cta { padding-top: 80px; }
     .nav-links {
       position: absolute; top: 72px; left: 0; right: 0; flex-direction: column; gap: 0;
       background: rgba(10,14,20,.97); border-bottom: 1px solid var(--border);
       max-height: 0; overflow: hidden; transition: max-height .3s ease;
     }
-    .nav-links.open { max-height: 320px; }
+    .nav-links.open { max-height: 360px; }
     .nav-links a { display: block; padding: 16px 24px; }
     .menu-btn { display: block; }
     .nav-cta { display: none; }
     .hero { padding-top: 112px; }
-    .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+    .services-grid, .projects-grid, .steps, .facts { grid-template-columns: 1fr; }
+    .featured-body .checks { grid-template-columns: 1fr; }
+    .featured-media { padding: 24px 0 0 24px; }
+    .featured-body { padding: 28px 24px; }
     .card { padding: 26px; }
-    .hero-stats { gap: 28px; }
-    .contact-box { padding: 56px 20px; }
+    .phone { right: 0; }
+    .showcase::before { inset: 0 0 10% 0; }
+    .showcase-tag { left: 0; }
+    .cta-box { padding: 56px 20px; }
     .timeline::before { left: 13px; }
     .tl-item { padding-left: 40px; }
     .tl-item::before { left: 6px; }
@@ -345,15 +354,15 @@
 <!-- ======================== NAVEGAÇÃO ======================== -->
 <nav id="nav">
   <div class="container nav-inner">
-    <a href="#inicio" class="logo">Davi<span>.</span></a>
+    <a href="#inicio" class="logo">davibraz<span>.dev</span></a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#servicos">Serviços</a></li>
       <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#sobre">Sobre</a></li>
       <li><a href="#processo">Como funciona</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
-    <a href="#contato" class="btn btn-primary nav-cta">Fale comigo</a>
+    <a href="#contato" class="btn btn-primary nav-cta">Pedir orçamento</a>
     <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
@@ -369,69 +378,59 @@
   </svg>
   <div class="container hero-grid">
     <div class="reveal">
-      <div class="badge"><span class="dot"></span>Aberto a estágio e novos projetos</div>
-      <h1>Olá, eu sou o Davi.<br><span class="typed-line">Eu crio <span class="typed" id="typed">sites</span></span></h1>
-      <p class="lead">Estudante de Ciência da Computação na UNICAP, no 3º período, com foco em criar sites e landing pages bonitos, rápidos e que funcionam bem no celular.</p>
+      <div class="badge"><span class="dot"></span>Agenda aberta para novos sites</div>
+      <h1>Seu negócio merece ser <span class="hl">encontrado</span>, não só lembrado.</h1>
+      <p class="lead">Eu sou o Davi e crio sites e landing pages para pequenos negócios de Recife e região: CTs, estúdios, lojas e prestadores de serviço. Páginas bonitas, rápidas e com o WhatsApp a um toque.</p>
       <div class="hero-actions">
-        <a href="https://wa.me/5581988130685?text=Ol%C3%A1%20Davi!%20Quero%20um%20or%C3%A7amento%20de%20site." class="btn btn-primary" target="_blank" rel="noopener">
-          Pedir orçamento
+        <a href="#projetos" class="btn btn-primary">
+          Ver projetos
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a href="#projetos" class="btn btn-ghost">Ver projetos</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><strong id="statProjetos">0</strong><span>projetos publicados</span></div>
-        <div class="stat"><strong>3º</strong><span>período de CC</span></div>
-        <div class="stat"><strong>100%</strong><span>responsivo no celular</span></div>
+        <a href="#contato" class="btn btn-ghost">Quero um site</a>
       </div>
     </div>
 
-    <div class="photo-wrap reveal">
-      <div class="photo">
-        <!-- Coloque sua foto como "foto.jpg" na mesma pasta. Se não existir, aparecem as iniciais. -->
-        <img src="foto.jpg" alt="Foto de Davi de Melo Braz" onerror="this.remove(); document.getElementById('initials').hidden = false;">
-        <span class="initials" id="initials" hidden>DB</span>
+    <a class="showcase reveal" href="https://davimbraz-del.github.io/CTLS26-SABINO/" target="_blank" rel="noopener" aria-label="Abrir o site do CT LS26 Futevôlei">
+      <div class="browser">
+        <div class="browser-bar"><i></i><i></i><i></i><span>davimbraz-del.github.io/CTLS26-SABINO</span></div>
+        <img src="img/ct-desktop.jpg" alt="Página inicial do site do CT LS26 Futevôlei no computador">
       </div>
-      <div class="photo-tag">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div>
-        <div><strong>Davi de Melo Braz</strong><span>Ciência da Computação · UNICAP</span></div>
+      <div class="phone"><img src="img/ct-mobile.jpg" alt="Site do CT LS26 Futevôlei no celular"></div>
+      <div class="showcase-tag">
+        <span class="dot"></span>
+        <div><strong>CT LS26 Futevôlei</strong><small>Último projeto no ar</small></div>
       </div>
-    </div>
+    </a>
   </div>
 </header>
 
-<!-- ======================== TECNOLOGIAS ======================== -->
-<div class="marquee" aria-label="Tecnologias que uso">
-  <div class="marquee-track" id="marquee"></div>
+<!-- ======================== NÚMEROS ======================== -->
+<div class="stats alt">
+  <div class="container stats-grid">
+    <div class="stat reveal"><strong id="statProjetos">1</strong><span>site no ar</span></div>
+    <div class="stat reveal"><strong>100<em>%</em></strong><span>adaptado ao celular</span></div>
+    <div class="stat reveal"><strong>1<em>toque</em></strong><span>até o seu WhatsApp</span></div>
+    <div class="stat reveal"><strong>3<em>º</em></strong><span>período de Ciência da Computação</span></div>
+  </div>
 </div>
 
-<!-- ======================== SOBRE ======================== -->
-<section class="alt" id="sobre">
-  <div class="container about-grid">
-    <div class="about-text reveal">
-      <span class="eyebrow">Sobre mim</span>
-      <h2>Um pouco da minha <span class="hl">história</span></h2>
-      <p>Sou o <strong>Davi de Melo Braz</strong>, estudante do <strong>3º período de Ciência da Computação na Universidade Católica de Pernambuco (UNICAP)</strong>, em Recife.</p>
-      <p>Hoje meu foco é a <strong>criação de sites e landing pages</strong>: transformar uma ideia em uma página clara, bonita e que funcione bem em qualquer tela.</p>
-      <p>Gosto muito de <strong>trabalhar em equipe</strong>, trocar ideias e construir junto. Fora da tela, passo meu tempo livre ao ar livre, praticando alguma atividade física, e estudando para continuar evoluindo.</p>
-      <p>Estou aberto a estágio, freelas de sites e projetos em equipe.</p>
+<!-- ======================== PROJETOS ======================== -->
+<section id="projetos">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Projetos</span>
+      <h2>Sites que já estão <span class="hl">no ar</span></h2>
+      <p class="lead">Cada projeto começa com uma conversa sobre o negócio e termina com uma página que trabalha por ele.</p>
     </div>
-    <div class="facts reveal">
-      <div class="card fact">
-        <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11.2V16c0 1.5 2.2 3 5 3s5-1.5 5-3v-4.8"/></svg></div>
-        <div><small>Formação</small><b>Ciência da Computação · UNICAP</b></div>
-      </div>
-      <div class="card fact">
-        <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
-        <div><small>Foco atual</small><b>Sites e landing pages</b></div>
-      </div>
-      <div class="card fact">
-        <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 20l6-10 4 6 3-4 5 8z"/><circle cx="17" cy="6" r="2"/></svg></div>
-        <div><small>Fora da tela</small><b>Ar livre · Atividade física · Estudos</b></div>
-      </div>
-    </div>
+    <div id="featured"></div>
+    <div class="projects-grid" id="projectsGrid"></div>
   </div>
 </section>
+
+<!-- ======================== TECNOLOGIAS ======================== -->
+<div class="marquee alt" aria-label="Tecnologias que uso">
+  <div class="marquee-track" id="marquee"></div>
+</div>
 
 <!-- ======================== SERVIÇOS ======================== -->
 <section id="servicos">
@@ -439,47 +438,65 @@
     <div class="section-head reveal">
       <span class="eyebrow">Serviços</span>
       <h2>Como eu posso <span class="hl">te ajudar</span></h2>
-      <p class="lead">Páginas pensadas para apresentar bem o seu negócio e transformar visitas em contatos.</p>
+      <p class="lead">Páginas pensadas para apresentar bem o seu negócio e transformar visitas em conversas no WhatsApp.</p>
     </div>
     <div class="services-grid">
-      <div class="card service featured reveal">
-        <span class="pill">Mais pedido</span>
+      <div class="card service top reveal">
         <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 13h6M7 16h4"/></svg></div>
         <h3>Landing page</h3>
         <p>Uma página única e direta para divulgar seu negócio, serviço ou evento.</p>
-        <ul><li>Design moderno e personalizado</li><li>Botão direto para o WhatsApp</li><li>Rápida e perfeita no celular</li></ul>
-        <a class="btn btn-primary" href="https://wa.me/5581988130685?text=Ol%C3%A1%20Davi!%20Quero%20uma%20landing%20page." target="_blank" rel="noopener">Quero uma landing page</a>
+        <ul class="checks"><li>Design personalizado para a sua marca</li><li>Botão direto para o WhatsApp</li><li>Rápida e perfeita no celular</li></ul>
+        <a class="btn btn-primary" href="#contato" data-tipo="Landing page">Quero uma landing page</a>
       </div>
       <div class="card service reveal">
         <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 10l9-6 9 6v10H3z"/><path d="M9 20v-6h6v6"/></svg></div>
         <h3>Site institucional</h3>
         <p>Um site com algumas páginas para apresentar sua empresa, equipe e serviços.</p>
-        <ul><li>Páginas de sobre, serviços e contato</li><li>Mapa e redes sociais integrados</li><li>Fácil de atualizar depois</li></ul>
-        <a class="btn btn-ghost" href="https://wa.me/5581988130685?text=Ol%C3%A1%20Davi!%20Quero%20um%20site%20institucional." target="_blank" rel="noopener">Pedir orçamento</a>
+        <ul class="checks"><li>Sobre, serviços, horários e contato</li><li>Mapa e redes sociais integrados</li><li>Fácil de atualizar depois</li></ul>
+        <a class="btn btn-ghost" href="#contato" data-tipo="Site institucional">Pedir orçamento</a>
       </div>
       <div class="card service reveal">
         <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.5 3.6-5.5 7-5.5s6.2 2 7 5.5"/></svg></div>
         <h3>Portfólio pessoal</h3>
         <p>Uma página como esta, para você mostrar quem é e o que já fez.</p>
-        <ul><li>Seção de projetos fácil de atualizar</li><li>Sobre você, trajetória e contato</li><li>Identidade visual sob medida</li></ul>
-        <a class="btn btn-ghost" href="https://wa.me/5581988130685?text=Ol%C3%A1%20Davi!%20Quero%20um%20portf%C3%B3lio." target="_blank" rel="noopener">Pedir orçamento</a>
+        <ul class="checks"><li>Projetos fáceis de atualizar</li><li>Sobre você, trajetória e contato</li><li>Identidade visual sob medida</li></ul>
+        <a class="btn btn-ghost" href="#contato" data-tipo="Portfólio pessoal">Pedir orçamento</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ======================== PROJETOS ======================== -->
-<section class="alt" id="projetos">
-  <div class="container">
-    <div class="projects-head">
-      <div class="section-head reveal">
-        <span class="eyebrow">Projetos</span>
-        <h2>O que eu já <span class="hl">lancei</span></h2>
-        <p class="lead">Sites e landing pages que já estão no ar, e os próximos que estão a caminho.</p>
+<!-- ======================== SOBRE ======================== -->
+<section class="alt" id="sobre">
+  <div class="container about-grid">
+    <div class="photo-wrap reveal">
+      <div class="photo">
+        <!-- Coloque sua foto como "foto.jpg" na mesma pasta. Sem ela, aparecem as iniciais. -->
+        <img src="foto.jpg" alt="Foto de Davi de Melo Braz" onerror="this.remove(); document.getElementById('initials').hidden = false;">
+        <span class="initials" id="initials" hidden>DB</span>
       </div>
-      <div class="filters reveal" id="filters"></div>
+      <div class="photo-tag"><strong>Davi de Melo Braz</strong><span>Recife, PE · Ciência da Computação</span></div>
     </div>
-    <div class="projects-grid" id="projectsGrid"></div>
+    <div class="about-text reveal">
+      <span class="eyebrow">Sobre mim</span>
+      <h2>Quem está por trás do <span class="hl">código</span></h2>
+      <p>Sou o <strong>Davi de Melo Braz</strong>, estudante do <strong>3º período de Ciência da Computação na UNICAP</strong>, em Recife. Hoje meu foco é a <strong>criação de sites e landing pages</strong>: transformar a ideia de um negócio em uma página clara, bonita e que funcione bem em qualquer tela.</p>
+      <p>Gosto de <strong>trabalhar em equipe</strong>, ouvir o cliente e construir junto. Fora da tela, passo o tempo livre ao ar livre, praticando alguma atividade física, e estudando para continuar evoluindo.</p>
+      <div class="facts">
+        <div class="card fact">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11.2V16c0 1.5 2.2 3 5 3s5-1.5 5-3v-4.8"/></svg></div>
+          <small>Formação</small><b>Ciência da Computação · UNICAP</b>
+        </div>
+        <div class="card fact">
+          <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div>
+          <small>Foco atual</small><b>Sites e landing pages</b>
+        </div>
+        <div class="card fact">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 20l6-10 4 6 3-4 5 8z"/><circle cx="17" cy="6" r="2"/></svg></div>
+          <small>Fora da tela</small><b>Ar livre, esporte e estudos</b>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -488,7 +505,7 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Como funciona</span>
-      <h2>Do papo ao site <span class="hl">no ar</span></h2>
+      <h2>Do primeiro papo ao site <span class="hl">no ar</span></h2>
       <p class="lead">Um processo simples, com você acompanhando cada etapa.</p>
     </div>
     <div class="steps">
@@ -506,32 +523,44 @@
     <div class="section-head reveal">
       <span class="eyebrow">Trajetória</span>
       <h2>Minha <span class="hl">caminhada</span> até aqui</h2>
-      <p class="lead">Experiências, estudos e marcos importantes, do mais recente ao mais antigo.</p>
     </div>
     <div class="timeline">
       <div class="tl-item reveal">
         <div class="card">
-          <span class="tl-when">2026 — Atual</span>
-          <h3>3º período de Ciência da Computação</h3>
-          <span class="tl-where">UNICAP · Recife, PE</span>
-          <p>Aprofundando programação e sistemas digitais, e lançando meus primeiros projetos nesta página.</p>
+          <span class="tl-when">2026 · Atual</span>
+          <h3>Criador de sites e landing pages</h3>
+          <span class="tl-where">Projetos próprios e para clientes</span>
+          <p>Lancei meu primeiro site para um cliente real, o CT LS26 Futevôlei, do planejamento à publicação.</p>
         </div>
       </div>
       <div class="tl-item reveal">
         <div class="card">
-          <span class="tl-when">2025</span>
-          <h3>Início da graduação</h3>
-          <span class="tl-where">Universidade Católica de Pernambuco</span>
-          <p>Entrada em Ciência da Computação e primeiros contatos com lógica de programação e algoritmos.</p>
+          <span class="tl-when">Em andamento</span>
+          <h3>Ciência da Computação · 3º período</h3>
+          <span class="tl-where">Universidade Católica de Pernambuco (UNICAP)</span>
+          <p>Base em lógica, algoritmos e sistemas digitais, que aplico diretamente na construção dos sites.</p>
         </div>
       </div>
-      <div class="tl-item reveal">
-        <div class="card">
-          <span class="tl-when">Antes</span>
-          <h3>Onde tudo começou</h3>
-          <span class="tl-where">Curiosidade por tecnologia</span>
-          <p>O interesse em entender como computadores e programas funcionam me levou a escolher a computação.</p>
-        </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== CHAMADA ======================== -->
+<section class="cta">
+  <div class="container">
+    <div class="cta-box reveal">
+      <svg class="curves" viewBox="0 0 1200 500" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M-20 400 C 250 250, 450 480, 700 330 S 1050 120, 1220 200"/>
+        <path d="M-20 440 C 260 300, 470 520, 720 370 S 1060 170, 1220 250"/>
+      </svg>
+      <h2>Quem procura o seu negócio na internet <span class="hl">encontra o quê?</span></h2>
+      <p class="lead">Um site próprio mostra quem você é, o que oferece e como falar com você, em qualquer horário, direto do celular.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/5581988130685?text=Ol%C3%A1%20Davi!%20Quero%20conversar%20sobre%20um%20site." class="btn btn-primary" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/></svg>
+          Chamar no WhatsApp
+        </a>
+        <a href="#projetos" class="btn btn-ghost">Ver o que já fiz</a>
       </div>
     </div>
   </div>
@@ -539,31 +568,46 @@
 
 <!-- ======================== CONTATO ======================== -->
 <section id="contato">
-  <div class="container">
-    <div class="contact-box reveal">
-      <svg class="curves" viewBox="0 0 1200 500" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M-20 400 C 250 250, 450 480, 700 330 S 1050 120, 1220 200"/>
-        <path d="M-20 440 C 260 300, 470 520, 720 370 S 1060 170, 1220 250"/>
-      </svg>
+  <div class="container contact-grid">
+    <div class="reveal">
       <span class="eyebrow">Contato</span>
-      <h2>Vamos <span class="hl">conversar?</span></h2>
-      <p class="lead">Tem uma ideia, uma vaga ou quer trocar uma ideia sobre algum projeto? Me chama.</p>
-      <div class="contact-actions">
-        <a href="https://wa.me/5581988130685" class="btn btn-primary" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/></svg>
-          WhatsApp · (81) 98813-0685
+      <h2>Vamos tirar sua <span class="hl">ideia</span> do papel?</h2>
+      <p class="lead" style="margin-bottom:28px">Preencha o formulário e a mensagem já chega pronta no meu WhatsApp. Se preferir, fale direto:</p>
+      <div class="contact-list">
+        <a class="card contact-item" href="https://wa.me/5581988130685" target="_blank" rel="noopener">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/></svg></div>
+          <div><small>WhatsApp</small><b>(81) 98813-0685</b></div>
         </a>
-        <a href="https://www.instagram.com/davimbraz/" class="btn btn-ghost" target="_blank" rel="noopener">@davimbraz</a>
-      </div>
-      <div class="socials">
-        <a class="social" href="https://github.com/davimbraz-del" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+        <a class="card contact-item" href="https://www.instagram.com/davimbraz/" target="_blank" rel="noopener">
+          <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5v.1"/></svg></div>
+          <div><small>Instagram</small><b>@davimbraz</b></div>
         </a>
-        <a class="social" href="https://www.instagram.com/davimbraz/" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5v.1"/></svg>
+        <a class="card contact-item" href="https://github.com/davimbraz-del" target="_blank" rel="noopener">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg></div>
+          <div><small>GitHub</small><b>davimbraz-del</b></div>
         </a>
       </div>
     </div>
+
+    <form class="card reveal" id="contactForm">
+      <div class="field"><label for="fNome">Seu nome</label><input id="fNome" required placeholder="Como posso te chamar?"></div>
+      <div class="field"><label for="fNegocio">Seu negócio</label><input id="fNegocio" placeholder="Ex.: CT de futevôlei, loja de roupas..."></div>
+      <div class="field">
+        <label for="fTipo">O que você precisa?</label>
+        <select id="fTipo">
+          <option>Landing page</option>
+          <option>Site institucional</option>
+          <option>Portfólio pessoal</option>
+          <option>Ainda não sei, quero conversar</option>
+        </select>
+      </div>
+      <div class="field"><label for="fMsg">Conte um pouco</label><textarea id="fMsg" placeholder="O que o site precisa ter? Tem prazo?"></textarea></div>
+      <button class="btn btn-primary" type="submit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/></svg>
+        Enviar pelo WhatsApp
+      </button>
+      <p class="form-note">Abre o WhatsApp com a mensagem pronta. Nada fica salvo aqui.</p>
+    </form>
   </div>
 </section>
 
@@ -573,81 +617,65 @@
 
 <footer>
   <div class="container footer-inner">
-    <span>© <span id="year"></span> Davi de Melo Braz</span>
+    <span>© <span id="year"></span> Davi de Melo Braz · Recife, PE</span>
     <a href="#inicio">Voltar ao topo ↑</a>
   </div>
 </footer>
 
 <script src="projetos.js"></script>
 <script>
-  // Menu e navegação
+  const WHATSAPP = '5581988130685';
+
+  // Navegação
   const nav = document.getElementById('nav');
   const navLinks = document.getElementById('navLinks');
   const menuBtn = document.getElementById('menuBtn');
   addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20), { passive: true });
-  menuBtn.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', open);
-  });
+  menuBtn.addEventListener('click', () => menuBtn.setAttribute('aria-expanded', navLinks.classList.toggle('open')));
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
   document.getElementById('year').textContent = new Date().getFullYear();
 
   // Projetos
   const projetos = window.PROJETOS || [];
-  const grid = document.getElementById('projectsGrid');
-  const filtersEl = document.getElementById('filters');
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>';
-  const placeholder = '<svg class="ph" viewBox="0 0 400 250" preserveAspectRatio="none" aria-hidden="true"><path d="M-10 190 C 90 120, 170 230, 260 150 S 380 60, 420 90"/><path d="M-10 215 C 100 150, 180 250, 270 175 S 390 90, 420 120"/></svg>';
+  const ext = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>';
+  const ph = '<svg class="ph" viewBox="0 0 400 250" preserveAspectRatio="none" aria-hidden="true"><path d="M-10 190 C 90 120, 170 230, 260 150 S 380 60, 420 90"/><path d="M-10 215 C 100 150, 180 250, 270 175 S 390 90, 420 120"/></svg>';
+  const host = url => { try { const u = new URL(url); return (u.host + u.pathname).replace(/\/$/, ''); } catch { return ''; } };
+  const linkBtn = (p, cls) => p.link
+    ? `<a class="btn ${cls}" href="${esc(p.link)}" target="_blank" rel="noopener">Ver site ao vivo ${ext}</a>`
+    : `<span class="soon">${p.status === 'Em breve' ? 'Em breve' : 'Link em breve'}</span>`;
 
   document.getElementById('statProjetos').textContent = projetos.filter(p => p.status === 'Lançado').length;
 
-  function render(filtro) {
-    const lista = filtro === 'Todos' ? projetos : projetos.filter(p => p.status === filtro);
-    grid.innerHTML = lista.map(p => {
-      const cover = p.imagem ? `<img src="${esc(p.imagem)}" alt="" loading="lazy">` : placeholder;
-      const link = p.link
-        ? `<a class="project-link" href="${esc(p.link)}" target="_blank" rel="noopener">Ver projeto ${arrow}</a>`
-        : `<span class="project-link disabled">${p.status === 'Em breve' ? 'Em breve' : 'Link em breve'}</span>`;
-      return `
-        <article class="card project reveal in">
-          <div class="project-cover">${cover}<span class="status ${p.status === 'Lançado' ? '' : 'soon'}">${esc(p.status)}</span></div>
-          <div class="project-body">
-            <span class="meta">${esc(p.data)}</span>
-            <h3>${esc(p.titulo)}</h3>
-            <p>${esc(p.descricao)}</p>
-            <div class="tags">${(p.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
-            ${link}
+  const [destaque, ...outros] = projetos;
+  if (destaque) {
+    document.getElementById('featured').innerHTML = `
+      <article class="card featured reveal">
+        <div class="featured-media">
+          <div class="browser">
+            <div class="browser-bar"><i></i><i></i><i></i><span>${esc(host(destaque.link) || destaque.titulo)}</span></div>
+            ${destaque.imagem ? `<img src="${esc(destaque.imagem)}" alt="Print do site ${esc(destaque.titulo)}" loading="lazy">` : `<div class="project-cover">${ph}</div>`}
           </div>
-        </article>`;
-    }).join('') || '<p class="lead">Nenhum projeto aqui ainda.</p>';
+        </div>
+        <div class="featured-body">
+          <div class="meta-row"><span class="label">${esc(destaque.categoria)}</span><small>${esc(destaque.status)}${destaque.data ? ' · ' + esc(destaque.data) : ''}</small></div>
+          <h3 style="font-size:1.75rem">${esc(destaque.titulo)}</h3>
+          <p>${esc(destaque.descricao)}</p>
+          ${(destaque.destaques || []).length ? `<ul class="checks">${destaque.destaques.map(d => `<li>${esc(d)}</li>`).join('')}</ul>` : ''}
+          ${linkBtn(destaque, 'btn-primary')}
+        </div>
+      </article>`;
   }
-
-  const status = ['Todos', ...new Set(projetos.map(p => p.status))];
-  filtersEl.innerHTML = status.map((s, i) => `<button class="chip ${i === 0 ? 'active' : ''}" data-f="${esc(s)}">${esc(s)}</button>`).join('');
-  filtersEl.addEventListener('click', e => {
-    const b = e.target.closest('.chip'); if (!b) return;
-    filtersEl.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c === b));
-    render(b.dataset.f);
-  });
-  render('Todos');
-
-  // Efeito de digitação
-  const palavras = ['sites', 'landing pages', 'portfólios'];
-  const typed = document.getElementById('typed');
-  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    let i = 0, j = palavras[0].length, apagando = true;
-    (function tick() {
-      const w = palavras[i];
-      typed.textContent = w.slice(0, j);
-      let espera = apagando ? 60 : 110;
-      if (apagando && j === 0) { apagando = false; i = (i + 1) % palavras.length; espera = 300; }
-      else if (!apagando && j === palavras[i].length) { apagando = true; espera = 2200; }
-      j += apagando ? -1 : 1;
-      if (!apagando && j > palavras[i].length) j = palavras[i].length;
-      setTimeout(tick, espera);
-    })();
-  }
+  document.getElementById('projectsGrid').innerHTML = outros.map(p => `
+    <article class="card project reveal ${p.link ? '' : 'ghost'}">
+      <div class="project-cover">${p.imagem ? `<img src="${esc(p.imagem)}" alt="Print do site ${esc(p.titulo)}" loading="lazy">` : ph}</div>
+      <div class="project-body">
+        <div class="meta-row"><span class="label">${esc(p.categoria)}</span></div>
+        <h3>${esc(p.titulo)}</h3>
+        <p>${esc(p.descricao)}</p>
+        ${linkBtn(p, 'btn-ghost')}
+      </div>
+    </article>`).join('');
 
   // Faixa de tecnologias
   const techs = [
@@ -657,16 +685,36 @@
     ['Design responsivo', '<rect x="2" y="5" width="13" height="10" rx="1.5"/><rect x="16" y="8" width="6" height="12" rx="1.5"/><path d="M6 19h6"/>'],
     ['Git & GitHub', '<circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="9" r="2.5"/><path d="M6 8.5v7M18 11.5c0 3-4 3-9.5 5"/>'],
     ['GitHub Pages', '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/>'],
-    ['Landing pages', '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 13h6M7 16h4"/>'],
+    ['Integração com WhatsApp', '<path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/>'],
   ];
-  const item = ([n, d]) => `<span class="marquee-item"><svg viewBox="0 0 24 24">${d}</svg>${n}</span>`;
-  document.getElementById('marquee').innerHTML = techs.map(item).join('') + techs.map(item).join('').replace(/class="marquee-item"/g, 'class="marquee-item" aria-hidden="true"');
+  const item = ([n, d], hidden) => `<span class="marquee-item"${hidden ? ' aria-hidden="true"' : ''}><svg viewBox="0 0 24 24">${d}</svg>${n}</span>`;
+  document.getElementById('marquee').innerHTML = techs.map(t => item(t)).join('') + techs.map(t => item(t, true)).join('');
+
+  // Botões de serviço já escolhem o tipo no formulário
+  document.querySelectorAll('[data-tipo]').forEach(b => b.addEventListener('click', () => {
+    document.getElementById('fTipo').value = b.dataset.tipo;
+  }));
+
+  // Formulário -> WhatsApp
+  document.getElementById('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const v = id => document.getElementById(id).value.trim();
+    const linhas = [
+      `Olá, Davi! Me chamo ${v('fNome')}.`,
+      v('fNegocio') && `Meu negócio: ${v('fNegocio')}.`,
+      `Preciso de: ${v('fTipo')}.`,
+      v('fMsg'),
+    ].filter(Boolean);
+    const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(linhas.join('\n'))}`;
+    const w = window.open(url, '_blank');
+    if (w) w.opener = null; else location.href = url;
+  });
 
   // Animação de entrada
   const io = new IntersectionObserver(entries => entries.forEach(en => {
     if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
   }), { threshold: .12 });
-  document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
