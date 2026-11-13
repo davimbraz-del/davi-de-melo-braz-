@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #07090d;
+  --color-bg-alt: #0b1018;
+  --color-surface: #10161f;
+  --color-surface-hover: #151d29;
+  --color-line: #1c2533;
+  --color-line-hover: #2a3a52;
+
+  --color-blue: #3b82f6;
+  --color-blue-hover: #2563eb;
+  --color-blue-light: #60a5fa;
+  --color-ice: #a5c8ff;
+  --color-navy: #1e3a8a;
+  --color-cyan: #38bdf8;
+
+  --color-text: #e6edf5;
+  --color-muted: #8b98a9;
+  --color-faint: #5b6778;
+
+  --font-sans: "Inter Variable", "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, monospace;
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-float: float 14s ease-in-out infinite;
+  --animate-ping-slow: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(30px, -30px, 0) scale(1.08); }
+  }
+  @keyframes ping-slow {
+    75%, 100% { transform: scale(2.4); opacity: 0; }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+  background: var(--color-bg);
+}
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+::selection { background: rgb(59 130 246 / 0.35); }
+
+:focus-visible {
+  outline: 2px solid var(--color-blue-light);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+@layer components {
+  .container-x { width: 100%; max-width: 1168px; margin-inline: auto; padding-inline: 24px; }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgb(230 237 245 / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(230 237 245 / 0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .bg-signature { background-image: linear-gradient(135deg, #60a5fa, #3b82f6, #1e40af); }
+  /* Gradiente assinatura no texto. O #1E40AF puro fica abaixo do contraste AA no fundo
+     escuro, então o texto termina no #3B82F6 e começa no azul-gelo. */
+  .text-gradient {
+    background-image: linear-gradient(135deg, #a5c8ff, #60a5fa 45%, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-blue-light);
+  }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    height: 48px; padding-inline: 24px; border-radius: 999px;
+    font-weight: 600; font-size: 0.95rem;
+    border: 1px solid transparent;
+    transition: background-color .3s, border-color .3s, box-shadow .3s, transform .3s, color .3s;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--color-blue); color: #fff; }
+  .btn-primary:hover { background: var(--color-blue-hover); box-shadow: 0 0 0 1px rgb(96 165 250 / .3), 0 10px 40px -8px rgb(59 130 246 / .65); }
+  .btn-outline { border-color: var(--color-line-hover); color: var(--color-text); background: rgb(16 22 31 / .6); }
+  .btn-outline:hover { border-color: var(--color-blue-light); box-shadow: 0 10px 40px -12px rgb(59 130 246 / .5); }
+
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: 20px;
+    transition: background-color .3s, border-color .3s, box-shadow .3s, transform .3s;
+  }
+  .card-hover:hover {
+    background: var(--color-surface-hover);
+    border-color: var(--color-line-hover);
+    box-shadow: 0 0 0 1px rgb(59 130 246 / .08), 0 24px 60px -24px rgb(59 130 246 / .35);
+    transform: translateY(-6px);
+  }
+
+  .chip {
+    display: inline-flex; align-items: center; height: 30px; padding-inline: 12px;
+    border-radius: 999px; border: 1px solid var(--color-line);
+    font-size: 0.82rem; color: var(--color-muted);
+    transition: border-color .3s, color .3s;
+  }
+  .chip:hover { border-color: var(--color-line-hover); color: var(--color-text); }
+  .tag {
+    display: inline-flex; align-items: center; height: 26px; padding-inline: 10px;
+    border-radius: 999px; border: 1px solid rgb(59 130 246 / .35); background: rgb(59 130 246 / .08);
+    font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: .04em; color: var(--color-ice);
+  }
+
+  .marquee-mask {
+    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
