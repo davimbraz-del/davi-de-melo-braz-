@@ -118,7 +118,8 @@
   }
   .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); animation: pulse 2.4s ease-in-out infinite; }
   @keyframes pulse { 50% { opacity: .35; } }
-  .hero h1 { margin-bottom: 24px; }
+  .hero h1 { margin-bottom: 24px; font-size: clamp(2rem, 5.2vw, 3.75rem); }
+  .typed-line { white-space: nowrap; }
   .hero .lead { margin-bottom: 40px; }
   .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 48px; }
   .hero-stats { display: flex; gap: 40px; flex-wrap: wrap; }
@@ -246,6 +247,57 @@
   .social:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 18px rgba(56,189,248,.35); }
   .social svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 
+  /* ---------- Digitação ---------- */
+  .typed { color: var(--cyan); border-right: 3px solid var(--cyan); padding-right: 4px; animation: caret 1s step-end infinite; }
+  @keyframes caret { 50% { border-color: transparent; } }
+
+  /* ---------- Faixa de tecnologias ---------- */
+  .marquee { border-block: 1px solid var(--border); background: var(--bg-alt); padding: 22px 0; overflow: hidden; }
+  .marquee-track { display: flex; gap: 56px; width: max-content; animation: scroll 32s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .marquee-item { display: flex; align-items: center; gap: 12px; color: var(--muted); font-family: var(--font-title); font-weight: 700; font-size: 1.05rem; white-space: nowrap; }
+  .marquee-item svg { width: 22px; height: 22px; fill: none; stroke: var(--cyan); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+
+  /* ---------- Serviços ---------- */
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .service { display: flex; flex-direction: column; }
+  .service p { color: var(--muted); margin: 10px 0 20px; font-size: 1rem; }
+  .service ul { list-style: none; display: grid; gap: 10px; margin-bottom: 28px; flex: 1; }
+  .service li { display: flex; gap: 10px; align-items: start; font-size: .95rem; color: var(--text); }
+  .service li::before { content: ""; flex-shrink: 0; width: 18px; height: 18px; margin-top: 4px; border-radius: 50%; background: rgba(56,189,248,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338BDF8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12l4 4 8-8'/%3E%3C/svg%3E") center / 12px no-repeat; }
+  .service.featured { background: linear-gradient(160deg, var(--navy), var(--surface) 70%); border-color: rgba(59,130,246,.5); }
+  .service .btn { align-self: flex-start; padding: 12px 22px; font-size: .92rem; }
+  .pill { display: inline-block; align-self: flex-start; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; background: var(--action); color: var(--bg); margin-bottom: 14px; }
+
+  /* ---------- Processo ---------- */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; counter-reset: step; }
+  .step { position: relative; }
+  .step-num { font-family: var(--font-title); font-weight: 800; font-size: 2.6rem; line-height: 1; color: transparent; -webkit-text-stroke: 1px var(--cyan); opacity: .8; margin-bottom: 18px; display: block; }
+  .step p { color: var(--muted); font-size: .98rem; margin-top: 8px; }
+
+  /* ---------- WhatsApp flutuante ---------- */
+  .wa-float {
+    position: fixed; right: 20px; bottom: 20px; z-index: 60;
+    width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--action); color: var(--bg);
+    box-shadow: 0 0 28px rgba(59,130,246,.5), 0 12px 30px -8px rgba(0,0,0,.6);
+    transition: transform .25s ease;
+  }
+  .wa-float:hover { transform: scale(1.08); }
+  .wa-float svg { width: 26px; height: 26px; }
+
+  @media (max-width: 960px) {
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 760px) {
+    .services-grid, .steps { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track, .typed { animation: none; }
+  }
+
   footer { padding: 40px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: .9rem; }
   .footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 
@@ -296,9 +348,9 @@
     <a href="#inicio" class="logo">Davi<span>.</span></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#servicos">Serviços</a></li>
       <li><a href="#projetos">Projetos</a></li>
-      <li><a href="#trajetoria">Trajetória</a></li>
+      <li><a href="#processo">Como funciona</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
     <a href="#contato" class="btn btn-primary nav-cta">Fale comigo</a>
@@ -318,22 +370,19 @@
   <div class="container hero-grid">
     <div class="reveal">
       <div class="badge"><span class="dot"></span>Aberto a estágio e novos projetos</div>
-      <h1>Olá, eu sou o Davi.<br>Crio <span class="hl">sites</span> e landing pages.</h1>
+      <h1>Olá, eu sou o Davi.<br><span class="typed-line">Eu crio <span class="typed" id="typed">sites</span></span></h1>
       <p class="lead">Estudante de Ciência da Computação na UNICAP, no 3º período, com foco em criar sites e landing pages bonitos, rápidos e que funcionam bem no celular.</p>
       <div class="hero-actions">
-        <a href="#projetos" class="btn btn-primary">
-          Ver meus projetos
+        <a href="https://wa.me/5581988130685?text=Ol%C3%A1%20Davi!%20Quero%20um%20or%C3%A7amento%20de%20site." class="btn btn-primary" target="_blank" rel="noopener">
+          Pedir orçamento
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a href="https://wa.me/5581988130685" class="btn btn-ghost" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/></svg>
-          Fale comigo
-        </a>
+        <a href="#projetos" class="btn btn-ghost">Ver projetos</a>
       </div>
       <div class="hero-stats">
         <div class="stat"><strong id="statProjetos">0</strong><span>projetos publicados</span></div>
         <div class="stat"><strong>3º</strong><span>período de CC</span></div>
-        <div class="stat"><strong>∞</strong><span>vontade de aprender</span></div>
+        <div class="stat"><strong>100%</strong><span>responsivo no celular</span></div>
       </div>
     </div>
 
@@ -350,6 +399,11 @@
     </div>
   </div>
 </header>
+
+<!-- ======================== TECNOLOGIAS ======================== -->
+<div class="marquee" aria-label="Tecnologias que uso">
+  <div class="marquee-track" id="marquee"></div>
+</div>
 
 <!-- ======================== SOBRE ======================== -->
 <section class="alt" id="sobre">
@@ -379,44 +433,36 @@
   </div>
 </section>
 
-<!-- ======================== HABILIDADES ======================== -->
-<section id="habilidades">
+<!-- ======================== SERVIÇOS ======================== -->
+<section id="servicos">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Habilidades</span>
-      <h2>O que eu <span class="hl">sei fazer</span></h2>
-      <p class="lead">O que venho desenvolvendo na faculdade e por conta própria.</p>
+      <span class="eyebrow">Serviços</span>
+      <h2>Como eu posso <span class="hl">te ajudar</span></h2>
+      <p class="lead">Páginas pensadas para apresentar bem o seu negócio e transformar visitas em contatos.</p>
     </div>
-    <div class="skills-grid">
-      <div class="card reveal">
-        <div class="icon"><svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></div>
-        <h3>Programação</h3>
-        <p>Lógica, algoritmos e estruturas de dados aplicados em código.</p>
+    <div class="services-grid">
+      <div class="card service featured reveal">
+        <span class="pill">Mais pedido</span>
+        <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 13h6M7 16h4"/></svg></div>
+        <h3>Landing page</h3>
+        <p>Uma página única e direta para divulgar seu negócio, serviço ou evento.</p>
+        <ul><li>Design moderno e personalizado</li><li>Botão direto para o WhatsApp</li><li>Rápida e perfeita no celular</li></ul>
+        <a class="btn btn-primary" href="https://wa.me/5581988130685?text=Ol%C3%A1%20Davi!%20Quero%20uma%20landing%20page." target="_blank" rel="noopener">Quero uma landing page</a>
       </div>
-      <div class="card reveal">
-        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.5-.8 1.5-1.5 0-1.2-1-1.6-1-2.7 0-.9.7-1.6 1.6-1.6H16a5 5 0 0 0 5-5C21 6.3 17 3 12 3z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="15" cy="7.5" r="1"/></svg></div>
-        <h3>Sites e landing pages</h3>
-        <p>Páginas com HTML, CSS e JavaScript, responsivas e com cuidado no visual e na experiência.</p>
+      <div class="card service reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 10l9-6 9 6v10H3z"/><path d="M9 20v-6h6v6"/></svg></div>
+        <h3>Site institucional</h3>
+        <p>Um site com algumas páginas para apresentar sua empresa, equipe e serviços.</p>
+        <ul><li>Páginas de sobre, serviços e contato</li><li>Mapa e redes sociais integrados</li><li>Fácil de atualizar depois</li></ul>
+        <a class="btn btn-ghost" href="https://wa.me/5581988130685?text=Ol%C3%A1%20Davi!%20Quero%20um%20site%20institucional." target="_blank" rel="noopener">Pedir orçamento</a>
       </div>
-      <div class="card reveal">
-        <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 20h18"/><path d="M6 16l4-5 3 3 5-7"/><path d="M15 7h3v3"/></svg></div>
-        <h3>Sistemas digitais</h3>
-        <p>Álgebra booleana, mapas de Karnaugh e projeto de circuitos lógicos.</p>
-      </div>
-      <div class="card reveal">
-        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14.8c1.8.7 3 2.4 3.5 5.2"/></svg></div>
-        <h3>Trabalho em equipe</h3>
-        <p>Gosto de construir junto: comunicação clara, troca de ideias e entrega em conjunto.</p>
-      </div>
-      <div class="card reveal">
-        <div class="icon"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg></div>
-        <h3>Resolução de problemas</h3>
-        <p>Quebrar desafios grandes em passos pequenos e resolvê-los.</p>
-      </div>
-      <div class="card reveal">
-        <div class="icon"><svg viewBox="0 0 24 24"><path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2"/><path d="M9 15l-3-3c1-3 3.5-7 9.5-8.5C20 3 21 4 20.5 8.5 19 14.5 15 17 12 18l-3-3z"/><circle cx="15" cy="9" r="1.5"/></svg></div>
-        <h3>Aprendizado rápido</h3>
-        <p>Curiosidade para aprender ferramentas novas e aplicar logo.</p>
+      <div class="card service reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.5 3.6-5.5 7-5.5s6.2 2 7 5.5"/></svg></div>
+        <h3>Portfólio pessoal</h3>
+        <p>Uma página como esta, para você mostrar quem é e o que já fez.</p>
+        <ul><li>Seção de projetos fácil de atualizar</li><li>Sobre você, trajetória e contato</li><li>Identidade visual sob medida</li></ul>
+        <a class="btn btn-ghost" href="https://wa.me/5581988130685?text=Ol%C3%A1%20Davi!%20Quero%20um%20portf%C3%B3lio." target="_blank" rel="noopener">Pedir orçamento</a>
       </div>
     </div>
   </div>
@@ -437,8 +483,25 @@
   </div>
 </section>
 
+<!-- ======================== PROCESSO ======================== -->
+<section id="processo">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Como funciona</span>
+      <h2>Do papo ao site <span class="hl">no ar</span></h2>
+      <p class="lead">Um processo simples, com você acompanhando cada etapa.</p>
+    </div>
+    <div class="steps">
+      <div class="card step reveal"><span class="step-num">01</span><h3>Conversa</h3><p>Entendo seu negócio, seu público e o que a página precisa fazer.</p></div>
+      <div class="card step reveal"><span class="step-num">02</span><h3>Layout</h3><p>Defino cores, textos e estrutura e te mostro antes de construir.</p></div>
+      <div class="card step reveal"><span class="step-num">03</span><h3>Desenvolvimento</h3><p>Construo a página com código limpo, rápida e responsiva.</p></div>
+      <div class="card step reveal"><span class="step-num">04</span><h3>No ar</h3><p>Publico o site e faço os ajustes finais junto com você.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- ======================== TRAJETÓRIA ======================== -->
-<section id="trajetoria">
+<section class="alt" id="trajetoria">
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Trajetória</span>
@@ -475,7 +538,7 @@
 </section>
 
 <!-- ======================== CONTATO ======================== -->
-<section class="alt" id="contato">
+<section id="contato">
   <div class="container">
     <div class="contact-box reveal">
       <svg class="curves" viewBox="0 0 1200 500" preserveAspectRatio="none" aria-hidden="true">
@@ -503,6 +566,10 @@
     </div>
   </div>
 </section>
+
+<a class="wa-float" href="https://wa.me/5581988130685" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9.5 9.5c0 2.5 2.5 5 5 5l1-1.2-1.8-.8-.7.7c-1-.4-1.8-1.2-2.2-2.2l.7-.7-.8-1.8z"/></svg>
+</a>
 
 <footer>
   <div class="container footer-inner">
@@ -564,6 +631,36 @@
     render(b.dataset.f);
   });
   render('Todos');
+
+  // Efeito de digitação
+  const palavras = ['sites', 'landing pages', 'portfólios'];
+  const typed = document.getElementById('typed');
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let i = 0, j = palavras[0].length, apagando = true;
+    (function tick() {
+      const w = palavras[i];
+      typed.textContent = w.slice(0, j);
+      let espera = apagando ? 60 : 110;
+      if (apagando && j === 0) { apagando = false; i = (i + 1) % palavras.length; espera = 300; }
+      else if (!apagando && j === palavras[i].length) { apagando = true; espera = 2200; }
+      j += apagando ? -1 : 1;
+      if (!apagando && j > palavras[i].length) j = palavras[i].length;
+      setTimeout(tick, espera);
+    })();
+  }
+
+  // Faixa de tecnologias
+  const techs = [
+    ['HTML', '<path d="M4 3l1.5 17L12 22l6.5-2L20 3z"/><path d="M8 8h8l-.5 6-3.5 1-3.5-1-.2-2"/>'],
+    ['CSS', '<path d="M4 3l1.5 17L12 22l6.5-2L20 3z"/><path d="M16 8H8.5l.3 3h6.9l-.4 4-3.3 1-3.3-1"/>'],
+    ['JavaScript', '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M11 9v6c0 1.2-.8 2-2 2M15.5 16.5c.4.4 1 .5 1.5.5 1 0 1.5-.5 1.5-1.3 0-1.8-3-1.2-3-3.2 0-.8.6-1.5 1.6-1.5.5 0 1 .2 1.3.5"/>'],
+    ['Design responsivo', '<rect x="2" y="5" width="13" height="10" rx="1.5"/><rect x="16" y="8" width="6" height="12" rx="1.5"/><path d="M6 19h6"/>'],
+    ['Git & GitHub', '<circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="9" r="2.5"/><path d="M6 8.5v7M18 11.5c0 3-4 3-9.5 5"/>'],
+    ['GitHub Pages', '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/>'],
+    ['Landing pages', '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 13h6M7 16h4"/>'],
+  ];
+  const item = ([n, d]) => `<span class="marquee-item"><svg viewBox="0 0 24 24">${d}</svg>${n}</span>`;
+  document.getElementById('marquee').innerHTML = techs.map(item).join('') + techs.map(item).join('').replace(/class="marquee-item"/g, 'class="marquee-item" aria-hidden="true"');
 
   // Animação de entrada
   const io = new IntersectionObserver(entries => entries.forEach(en => {
